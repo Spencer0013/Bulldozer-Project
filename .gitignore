@@ -138,6 +138,8 @@ venv.bak/
 artifacts/
 *.csv
 data/bulldozer/
+**/.git/
+**/Bulldozer-Project.git/
 
 
 # Spyder project settings
