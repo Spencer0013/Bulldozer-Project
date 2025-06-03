@@ -89,6 +89,10 @@ class DataTransformation:
             logging.info("Fitting numeric pipeline on train data")
             X_train_num = self.num_pipeline.fit_transform(X_train[self.num_cols])
             logging.info("Fitting categorical pipeline on train data")
+            # Check cardinality of each categorical column
+            for col in self.cat_cols:
+                 unique_vals = X_train[col].nunique()
+                 print(f"{col}: {unique_vals} unique values")
             X_train_cat = self.cat_pipeline.fit_transform(X_train[self.cat_cols])
 
             # Stack numeric (dense) + categorical (sparse) → sparse matrix
